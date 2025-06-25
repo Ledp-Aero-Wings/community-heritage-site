@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ประวัติหมู่บ้านสมสวัสดิ์</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div id="app-container">
+    <header id="main-header"></header>
+    <main>
+      <section id="hero-section">
+        <img src="assets/img/village.png" alt="โลโก้หมู่บ้านสมสวัสดิ์" class="hero-image" loading="lazy" />
+        <div class="hero-content">
+          <h1 id="village-title"></h1>
+          <p id="village-location"></p>
+        </div>
+      </section>
+      <div class="document-meta" id="document-meta" aria-live="polite"></div>
+      <section id="history-section"></section>
+      <section id="leader-section"></section>
+      <section id="current-section"></section>
+      <div id="note-section"></div>
+      <div class="info-alert" id="meta-alert" aria-live="polite"></div>
+    </main>
+    <footer id="main-footer"></footer>
+  </div>
+  <button id="scrolltop-btn" aria-label="เลื่อนขึ้นด้านบน" type="button" tabindex="0">↑</button>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadLayout();
+      loadHistoryPage();
+      setupScrollBtn();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เกี่ยวกับผู้จัดทำ</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div id="app-container">
+    <header id="main-header"></header>
+    <main>
+      <section id="about-hero" class="card">
+        <h1>ข้อมูลผู้จัดทำเอกสาร</h1>
+        <ul class="about-list" id="about-detail"></ul>
+      </section>
+      <section class="meta-highlight">
+        <h2>รายละเอียดเอกสาร</h2>
+        <ul class="about-meta">
+          <li><b>ฉบับที่:</b> <span id="about-version"></span></li>
+          <li><b>จัดทำครั้งแรกเมื่อ:</b> <span id="about-created"></span></li>
+          <li><b>ข้อมูล ณ วันที่:</b> <span id="about-updated"></span></li>
+        </ul>
+        <div class="info-alert" style="margin-top:1em;">
+          <strong>โปรดทราบ:</strong> เอกสารฉบับนี้จัดทำเพื่อบันทึกข้อมูล ณ วันที่ระบุข้างต้น หากต้องการข้อมูลล่าสุดโปรดตรวจสอบกับแหล่งข้อมูลที่เชื่อถือได้หรือเจ้าหน้าที่ในพื้นที่
+        </div>
+      </section>
+    </main>
+    <footer id="main-footer"></footer>
+  </div>
+  <button id="scrolltop-btn" aria-label="เลื่อนขึ้นด้านบน" type="button" tabindex="0">↑</button>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadLayout();
+      loadAboutPage();
+      setupScrollBtn();
+    });
+  </script>
+</body>
+</html>
