@@ -105,8 +105,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0 var(--side-padding);
-  border-bottom-right-radius: 25px;
-  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
 }
 
 nav {
@@ -405,8 +405,8 @@ section p {
   text-align: center;
   color: var(--text-muted);
   font-size: var(--font-size-xs);
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
 }
 
 /* Scroll to Top Button - ใหญ่ขึ้น */

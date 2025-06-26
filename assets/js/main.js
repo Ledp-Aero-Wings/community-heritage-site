@@ -25,7 +25,7 @@ function loadHistoryPage() {
       document.getElementById("document-meta").innerHTML =
         `<b>ฉบับ:</b> ${data.version ?? '-'} &nbsp;|&nbsp; <b>ข้อมูลรวบรวม ณ วันที่:</b> ${data.updated_at ?? '-'}`;
       document.getElementById("meta-alert").innerHTML =
-        `ข้อมูลที่แสดงนี้เป็นข้อมูล ณ วันจัดทำล่าสุด กรุณาตรวจสอบกับเจ้าหน้าที่ในพื้นที่หากต้องการข้อมูลปัจจุบันหรือยืนยันความถูกต้อง`;
+        `ข้อมูลที่แสดงนี้เป็นข้อมูล ณ วันจัดทำล่าสุด กรุณาตรวจสอบกับเจ้าหน้าที่หรือแหล่งข้อมูลอื่นเพื่อความถูกต้องในปัจจุบัน`;
       // Content sections
       document.getElementById("history-section").innerHTML =
         `<h2>ประวัติการก่อตั้งหมู่บ้าน</h2>
@@ -55,6 +55,7 @@ function loadHistoryPage() {
 function loadAboutPage() {
   loadJson('data/about.json')
     .then(data => {
+      // Document author info
       document.getElementById("about-detail").innerHTML = `
         <li><b>ชื่อผู้จัดทำ:</b> ${data.name}</li>
         <li><b>ระดับชั้น:</b> ${data.level}</li>
@@ -63,6 +64,25 @@ function loadAboutPage() {
       document.getElementById("about-version").textContent = data.version ?? '-';
       document.getElementById("about-created").textContent = data.created_at ?? '-';
       document.getElementById("about-updated").textContent = data.updated_at ?? '-';
+      
+      // Website developer info (new box)
+      if (data.website) {
+        const siteBox = document.createElement('section');
+        siteBox.className = "meta-highlight site-meta-box";
+        siteBox.innerHTML = `
+          <h2>รายละเอียดเว็บไซต์</h2>
+          <ul class="about-meta">
+            <li><b>ผู้พัฒนาเว็บไซต์:</b> <span>${data.website.developer ?? '-'}</span></li>
+            <li><b>เริ่มพัฒนาเว็บไซต์เมื่อ:</b> <span>${data.website.dev_started_at ?? '-'}</span></li>
+          </ul>
+          <div class="info-alert" style="margin-top:1em;">
+            <strong>หมายเหตุ:</strong> ${data.website.dev_note ?? ''}
+          </div>
+        `;
+        // ใส่กรอบนี้ไว้หลัง meta-highlight เอกสาร
+        const docMeta = document.querySelector('.meta-highlight');
+        docMeta && docMeta.parentNode.insertBefore(siteBox, docMeta.nextSibling);
+      }
     })
     .catch(e => {
       document.getElementById("about-detail").innerHTML =
@@ -81,12 +101,13 @@ function toParagraphs(text) {
 /* Scroll to Top Button Setup (One UI 6.0 style) */
 function setupScrollBtn() {
   const scrollBtn = document.getElementById('scrolltop-btn');
+  
   function toggleBtn() {
-    if(window.scrollY > 180) scrollBtn.classList.add('visible');
+    if (window.scrollY > 180) scrollBtn.classList.add('visible');
     else scrollBtn.classList.remove('visible');
   }
   toggleBtn();
   window.addEventListener('scroll', toggleBtn);
   scrollBtn.addEventListener('click', () =>
-    window.scrollTo({top:0,behavior:'smooth'}));
+    window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
