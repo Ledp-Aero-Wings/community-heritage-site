@@ -5,8 +5,8 @@ function loadLayout() {
   const page = window.location.pathname.split('/').pop();
   document.getElementById("main-header").innerHTML =
     `<nav aria-label="เมนูนำทาง">
-      <a href="index.html"${page === 'index.html' || page === '' ? ' class="active" aria-current="page"' : ''}>หน้าหลัก</a>
-      <a href="about.html"${page === 'about.html' ? ' class="active" aria-current="page"' : ''}>เกี่ยวกับผู้จัดทำ</a>
+      <a href="index.html"${page === 'index.html' || page === '' ? ' class="active" aria-current="page"' : ''} wave="">หน้าหลัก</a>
+      <a href="about.html"${page === 'about.html' ? ' class="active" aria-current="page"' : ''} wave="">เกี่ยวกับผู้จัดทำ</a>
     </nav>`;
   // Footer
   document.getElementById("main-footer").innerHTML =
